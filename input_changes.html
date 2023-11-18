@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input changes the attributes of a box</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .box {
+        margin: 10px auto;
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+        background: black;
+    }
+
+    #inp1,
+    #inp2,
+    #inp3 {
+        display: block;
+        margin: 5px auto;
+        width: 200px;
+        height: 20px;
+        padding: 10px;
+        
+    }
+    pre{
+        font-family: 'Courier New', Courier, monospace;
+        
+        font-weight: bolder;
+
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+    <pre>                                background</pre>
+    <input type="text" name="input1" id="inp1" placeholder="color">
+
+    <pre>                                border-radius</pre>
+    <input type="text" name="input2" id="inp2" placeholder="number.i.e 10%,5px">
+
+    <pre>                                border</pre>
+    <input type="text" name="input3" id="inp3" placeholder="format:2px solid blue">
+    <input type="email" name="" id="" required placeholder="email" >
+    <input type="search" name="sea" id="sea1" placeholder="search">
+</body>
+<script>
+    const inp1 = document.getElementById("inp1")
+    const inp2 = document.getElementById("inp2")
+    const inp3 = document.getElementById("inp3")
+    const box = document.getElementsByClassName('box')[0];
+    const search = document.getElementById("sea1");
+    
+    setInterval(() => {
+        
+        
+        let value1 = inp1.value;
+        let value2 = inp2.value;
+        let value3 = inp3.value;
+
+        box.style.cssText = `background:${value1};border-radius:${value2};border:${value3}`
+        let search_val=search.value;
+        // console.log(search_val);
+    }, 1000);
+    
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Creating an API</h1>
+
+
+    <script>
+        let a=[1,23,344,54545,6,3456,434,55,6,54,543,45,4]
+        let body =document.getElementsByTagName('body')[0];
+        body.innerHTML=a
+
+        let fet_data;
+        fetch("https://api.sampleapis.com/futurama/characters")
+            .then((response) => {
+                return response.json();
+            }
+            )
+            .then((data) => {
+                data=JSON.stringify(data)
+                data=JSON.parse(data)
+                console.log(data)
+                body.innerHTML=data
+            })
+            .catch((error) => {
+                console.error("data not fetched");
+            })
+            
+
+
+    </script>
+</body>
+
+</html>

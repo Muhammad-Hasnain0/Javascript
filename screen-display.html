@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drop down in display</title>
+    <link rel="stylesheet" href="../main.css">
+
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    h1{
+        text-align: center;
+    }
+    .container{
+        border: 2px solid red;
+    }
+    .box{
+        display: flex;
+        justify-content: space-between;
+        margin-inline-end: 20px;
+    }
+    .tilt{
+        font-size: 30px;
+        cursor: pointer;
+        user-select: none;
+        transform: translate3d(180deg);
+    }
+    .answer{
+        display: none;
+        /* transition: width 2s; */
+    }
+
+    
+    </style>
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis cumque sit, expedita modi suscipit est fugiat aliquam ratione minus molestias dolorum, ullam assumenda pariatur laborum odio numquam doloremque nulla dolor omnis delectus aliquid! Perspiciatis, porro.</p>
+    
+    <h1 > Question/Answer</h1>
+    <div class="container container-sm">
+
+       <div class="box row justify-end">
+        <div >
+            <p>Q.1 ) <b>Why do electrons revolves around nucleus?</b> </p>
+        </div>
+        <div  class="tilt">
+            <b>^</b> 
+        </div>
+        </div>
+        <div class="answer">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nesciunt velit ducimus repellat consequuntur laborum labore totam magni culpa animi sunt blanditiis dignissimos adipisci saepe dolores, fugiat cumque, molestias similique vel pariatur ipsum sequi. Expedita eum sapiente laboriosam possimus quisquam totam, iste temporibus exercitationem suscipit perspiciatis unde? Ipsa, neque ducimus ut velit aspernatur, nulla quod porro debitis dolore, eum rerum expedita corrupti. Velit nam, odit, non accusamus id iure ipsum ipsa cumque hic laborum debitis! Culpa facere id dolores repudiandae autem ullam, quisquam velit illo architecto. Voluptatem minima blanditiis illo fugit. Consequatur nobis laborum accusamus quod recusandae aliquam qui dolorum.
+        </div>
+    </div>
+    <script>
+    </script>
+    <script src="js_demo.js"></script>
+</body>
+
+</html>
