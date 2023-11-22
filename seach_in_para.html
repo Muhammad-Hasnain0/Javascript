@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+
+<style>
+    * {
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        color: white;
+    }
+
+    .box {
+        width: 50%;
+        min-height: 70svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        outline: 2px solid rgb(20, 20, 20);
+        offset: 10px;
+        background: rgb(20, 20, 20);
+        box-shadow: 5px 5px inset rgb(34, 34, 34);
+
+    }
+
+    h1 {
+        margin: 2%;
+    }
+
+    .search_para {
+        padding-left: 10px;
+    }
+
+
+    #search {
+        background: black;
+        color: black;
+        font-weight: 700;
+        outline: 0;
+        padding: 7px;
+        margin: 5px;
+        color: white;
+    }
+
+    .highlight {
+        color: red;
+        background: green;
+    }
+</style>
+
+
+
+<body>
+    <div class="box">
+
+
+        <p class="search_para">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, veniam. Dolorum itaque aut reprehenderit
+            quia quod voluptatum velit dolor vitae repudiandae voluptatibus deserunt suscipit repellat pariatur qui
+            reiciendis labore magni obcaecati enim, possimus ex quas. Fuga architecto accusantium culpa voluptatibus
+            recusandae cupiditate veniam aspernatur reiciendis et, exercitationem neque, est distinctio.
+        </p>
+        <p class="search_para">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, veniam. Dolorum itaque aut reprehenderit
+            quia quod voluptatum velit dolor vitae repudiandae voluptatibus deserunt suscipit repellat pariatur qui
+            reiciendis labore magni obcaecati enim, possimus ex quas. Fuga architecto accusantium culpa voluptatibus
+            recusandae cupiditate veniam aspernatur reiciendis et, exercitationem neque, est distinctio.
+        </p>
+        <p class="search_para">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, veniam. Dolorum itaque aut reprehenderit
+            quia quod voluptatum velit dolor vitae repudiandae voluptatibus deserunt suscipit repellat pariatur qui
+            reiciendis labore magni obcaecati enim, possimus ex quas. Fuga architecto accusantium culpa voluptatibus
+            recusandae cupiditate veniam aspernatur reiciendis et, exercitationem neque, est distinctio. Lorem ipsum,
+            dolor sit amet consectetur adipisicing elit. Sequi laborum veritatis, debitis ipsam soluta nostrum
+            molestiae. Nostrum excepturi quis dignissimos dolorem ex nulla asperiores optio tenetur autem odio,
+            consequatur pariatur ipsa unde veritatis incidunt. Speacial characters in Regular Expression: ^ $ * + ? = !
+            : | \ / ( ) [ ] { } </p>
+
+        <h1 id="h1">search in paragraph</h1>
+        <input type="text" id="search" " placeholder=" Search....">
+    </div>
+</body>
+
+
+<script>
+    var input = document.getElementById("search")
+
+    input.addEventListener("keyup", () => {
+
+        const p = document.querySelectorAll(".search_para")
+        var search = input.value.toUpperCase();
+
+        //  special expression
+        const special = /[\\[{().+*?\^$]/g;
+
+
+
+        if (search === '') {
+            p.forEach(pa => {
+                pa.innerHTML = pa.textContent;
+            });
+            return;
+        };
+        p.forEach(pa => {
+            var txtvalue = pa.textContent;
+            if (txtvalue.toUpperCase().indexOf(search) > -1) {
+                if (special.test(search)) search = search.replace(special, "\\$&");
+                txtvalue = txtvalue.replace(new RegExp(search, "gi")
+                    , `<span class='highlight'>$&</span>`);
+                pa.innerHTML = txtvalue;
+            } else {
+                pa.innerHTML = txtvalue;
+            }
+        });
+    });
+
+
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0%;
+        box-sizing: border-box;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        color: #ffffff;
+        overflow: hidden;
+        cursor: none;
+    }
+
+    h1 {
+        user-select: none;
+    }
+
+    #cursor2 {
+        width: 3px !important;
+        height: 3px !important;
+        transition: .07s !important;
+    }
+
+    #cursor,
+    #cursor2 {
+        position: absolute;
+        content: "";
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 50px;
+        transition: .1s;
+        pointer-events: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .heading:hover~#cursor {
+        top: 10px;
+        left: 10px;
+        width: 100px;
+        height: 100px;
+        border: 2px dashed rgb(255, 255, 255);
+        animation: animate 10s linear infinite;
+        background: #353333;
+        z-index: -1;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        50% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="heading">
+        <h1>
+            Following The Cursor | Hassan
+        </h1>
+    </div>
+    <div id="cursor"></div>
+    <div id="cursor2"></div>
+</body>
+<script type="text/javascript">
+    var cursor = document.getElementById("cursor");
+    // Event Listener
+    let cursor2 = document.getElementById("cursor2");
+    document.addEventListener("mousemove", (e) => {
+        let x = e.clientX;
+        let y = e.clientY;
+        // cursor1
+        cursor.style.left = x + "px";
+        cursor.style.top = y + "px";
+        // cursor2
+        cursor2.style.left = x + "px";
+        cursor2.style.top = y + "px";
+    });
+    console.log("hassan")
+    
+
+</script>
+
+</html>
